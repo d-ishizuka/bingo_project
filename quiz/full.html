@@ -2,11 +2,11 @@
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
-    <meta name="viewport" content="width=1940">
+    <meta name="viewport" content="width=800">
     <style>
 
         body {
-            padding: 50px;
+            padding: 20px;
         }
 
     </style>
@@ -14,7 +14,7 @@
 <body>
     <div id="app" class="row">
         <!-- クイズを表示する部分 -->
-        <div class="offset-3 col-6" v-if="!completed">
+        <div class="col-12" v-if="!completed">
             <div class="card">
                 <div class="card-body">
                     <p class="badge badge-dark">第 {{ (questionIndex+1) }} 問</p>
