@@ -1,8 +1,13 @@
+/* クイズ部分のスタイル */
+#quiz {
+    padding: 40px
+}
+
+/* カード全体のスタイル */
 #bingocard{
     margin: 0 auto
 }
 
-/* カード全体のスタイル */
 #bingo{
     width: 500px;
     margin: 0 auto;
