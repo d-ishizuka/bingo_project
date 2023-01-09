@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <img src="images/karameru0.jpeg" class="img-fluid">
+        <img src="images/karameru0.jpeg" class="img-fluid" v-if="!completed">
 
         <!-- bingoを表示する部分 -->
         <div id="bingocard" v-if="completed">
@@ -75,7 +75,25 @@
             <div id="button">
                 <button v-on:click="createCard">カード作成</button>
             </div>
+
+            <div>
+                <ul class="gift-list">
+                    <li>ビンゴ景品一覧
+                        <ul>
+                            <li>獺祭・久保田飲み比べセット</li>
+                            <li>SKⅡピテラパワーキット</li>
+                            <li>Amazonギフト券5000円分</li>
+                            <li>xxxタオルセット</li>
+                            <li>久世福ギフトセット</li>
+                            <li>ユニクロギフト券3000円</li>
+                            <li>おつまみセット</li>
+                            <li>お茶</li>
+                        </ul>
+                    </li>
+                </ul> 
+            </div>
         </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
     <script>
@@ -112,22 +130,13 @@
                 questionIndex: 0,
                 questions: [
                     {
-                        question: '2人が出会ったのは？',
+                        question: 'このキャラクターの名前は？',
                         answers: [
-                            'with',
-                            'pairs',
-                            'tinder',
+                            'からめる',
+                            'しろデブ',
+                            'ねこじろー',
                         ],
                         answer: 1
-                    },
-                    {
-                        question: '初めて見に行った映画のタイトルは何？',
-                        answers: [
-                            '天気の子',
-                            '君の名は',
-                            '紺青の拳',
-                        ],
-                        answer: 0
                     },
                     {
                         question: '初めて行った旅行先は?',
@@ -139,31 +148,13 @@
                         answer: 1
                     },
                     {
-                        question: 'プロポーズの日に泊まったホテルは？',
+                        question: '新婚旅行の行き先は？',
                         answers: [
-                            'グランドニッコー東京台場',
-                            '帝国ホテル',
-                            '品川プリンスホテル',
+                            '沖縄',
+                            '北海道',
+                            'ハワイ',
                         ],
-                        answer: 2
-                    },
-                    {
-                        question: '身長差は何cm？',
-                        answers: [
-                            '14 cm',
-                            '17 cm',
-                            '20 cm',
-                        ],
-                        answer: 2
-                    },
-                    {
-                        question: '両家顔合わせの時のお店は？',
-                        answers: [
-                            '寺田屋',
-                            '近江屋',
-                            '浅田屋',
-                        ],
-                        answer: 3
+                        answer: 1
                     },
                     {
                         question: 'プロポーズの日は？',
@@ -184,16 +175,16 @@
                         answer: 2
                     },
                     {
-                        question: '新郎がハマっているラジオは？',
+                        question: 'プロポーズの日に泊まったホテルは？',
                         answers: [
-                            '三四郎のオールナイトニッポン0',
-                            '星野源のオールナイトニッポン',
-                            'マジカルラブリーのオールナイトニッポン0',
+                            'グランドニッコー東京台場',
+                            '帝国ホテル',
+                            '品川プリンスホテル',
                         ],
-                        answer: 3
+                        answer: 2
                     },
                     {
-                        question: '付き合ってから何日目？',
+                        question: '付き合ってから今日で何日目？',
                         answers: [
                             '1087日',
                             '1226日',
@@ -202,11 +193,83 @@
                         answer: 2
                     },
                     {
-                        question: '「映画名探偵コナンハロウィンの花嫁」何回観に行った？',
+                        question: '両家顔合わせの時のお店は？',
                         answers: [
-                            '3回',
-                            '4回',
-                            '5回',
+                            '寺田屋',
+                            '近江屋',
+                            '浅田屋',
+                        ],
+                        answer: 3
+                    },
+                    {
+                        question: '身長差は何cm？',
+                        answers: [
+                            '14 cm',
+                            '17 cm',
+                            '20 cm',
+                        ],
+                        answer: 2
+                    },
+                    {
+                        question: '新郎が好きな芸人は？',
+                        answers: [
+                            '三四郎',
+                            'ミルクボーイ',
+                            'マジカルラブリー',
+                        ],
+                        answer: 3
+                    },
+                    {
+                        question: '新郎xxx？',
+                        answers: [
+                            'xxx',
+                            'yyy',
+                            'zzz',
+                        ],
+                        answer: 3
+                    },
+                    {
+                        question: '新婦が好きなアニメは？',
+                        answers: [
+                            'ヒカルの碁',
+                            '3月のライオン',
+                            '遊戯王',
+                        ],
+                        answer: 3
+                    },
+                    {
+                        question: '新婦の学生時代のバイトは？',
+                        answers: [
+                            '三省堂書店',
+                            'LOFT',
+                            'マクドナルド',
+                        ],
+                        answer: 3
+                    },
+                    {
+                        question: '新郎/新婦の好きな食べ物の組み合わせは？',
+                        answers: [
+                            'エビチリ/ハッシュポテト',
+                            '八宝菜/豚の角煮',
+                            '筑前煮/レバニラ',
+                        ],
+                        answer: 1
+                    },
+                    {
+                        question: '入場曲は？',
+                        answers: [
+                            'What makes you beautiful',
+                            'wedding march part.2',
+                            'Marry You',
+                        ],
+                        answer: 1
+                    },
+                    {
+                        question: '入場曲は？',
+                        answers: [
+                            'What makes you beautiful',
+                            'wedding march part.2',
+                            'Marry You',
                         ],
                         answer: 1
                     }

@@ -5,7 +5,8 @@
 
 /* カード全体のスタイル */
 #bingocard{
-    margin: 0 auto
+    margin: 0 auto;
+    padding-top: 1rem;
 }
 
 #bingo{
@@ -59,4 +60,20 @@
     vertical-align: middle;
     color: #fff;
     background-color: #B78D4A;
+}
+
+.gift-list {
+    border: double 2px #057d23;/*破線 太さ 色*/
+}
+
+ul {
+    margin-top: 1rem;
+    color: #057d23;/*文字色*/
+    background: #e0f0d7; /*背景色*/
+    padding: 0.5em 0.5em 0.5em 2em;
+  }
+  
+ul li{
+line-height: 1.5;
+padding: 0.5em 0;
 }
