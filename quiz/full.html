@@ -40,54 +40,68 @@
         <img src="images/karameru0.jpeg" class="img-fluid" v-if="!completed">
 
         <!-- bingoを表示する部分 -->
-        <div id="bingocard" v-if="completed">
-            <div id="title">
-                <h1 >BINGO</h1>
+        <div v-if="completed">
+            <div class="flex">
+                <!-- <div class="col-2">
+                    <img class="bingo-img" src="images/56789.jpeg">
+                </div> -->
+                <div id="bingocard col-8">
+                    <div id="title">
+                        <h1 >BINGO</h1>
+                    </div>
+                    <table id="bingo" cellspacing="10">
+                        <tbody>
+                            <tr>
+                                <td id="bi0"></td>
+                                <td id="bi1"></td>
+                                <td id="bi2"></td>
+                                <td id="bi3"></td>
+                            </tr>
+                            <tr>
+                                <td id="bi4"></td>
+                                <td id="bi5"></td>
+                                <td id="bi6"></td>
+                                <td id="bi7"></td>
+                            </tr>
+                            <tr>
+                                <td id="bi8"></td>
+                                <td id="bi9"></td>
+                                <td id="bi10"></td>
+                                <td id="bi11"></td>
+                            </tr>
+                            <tr>
+                                <td id="bi12"></td>
+                                <td id="bi13"></td>
+                                <td id="bi14"></td>
+                                <td id="bi15"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <div class="col-2">
+                    <img class="bingo-img" src="images/56789.jpeg">
+                </div> -->
             </div>
-            <table id="bingo" cellspacing="10">
-                <tbody>
-                    <tr>
-                        <td id="bi0"></td>
-                        <td id="bi1"></td>
-                        <td id="bi2"></td>
-                        <td id="bi3"></td>
-                    </tr>
-                    <tr>
-                        <td id="bi4"></td>
-                        <td id="bi5"></td>
-                        <td id="bi6"></td>
-                        <td id="bi7"></td>
-                    </tr>
-                    <tr>
-                        <td id="bi8"></td>
-                        <td id="bi9"></td>
-                        <td id="bi10"></td>
-                        <td id="bi11"></td>
-                    </tr>
-                    <tr>
-                        <td id="bi12"></td>
-                        <td id="bi13"></td>
-                        <td id="bi14"></td>
-                        <td id="bi15"></td>
-                    </tr>
-                </tbody>
-            </table>
             <div id="button">
-                <button v-on:click="createCard">カード作成</button>
+                <div v-if="!is_cardCreated">
+                    <button v-on:click="createCard">カード作成</button>
+                </div>
+                <div v-if="is_cardCreated">
+                    <button v-on:click="shuffleCard">シャッフル</button>
+                </div>
             </div>
-
             <div>
-                <ul class="gift-list">
+                <ul class="gift-list col-8">
                     <li>ビンゴ景品一覧
                         <ul>
-                            <li>獺祭・久保田飲み比べセット</li>
+                            <li>大吟醸金雀飛翔</li>
                             <li>SKⅡピテラパワーキット</li>
                             <li>Amazonギフト券5000円分</li>
-                            <li>xxxタオルセット</li>
-                            <li>久世福ギフトセット</li>
+                            <li>UCHINO タオルセット</li>
+                            <li>久世福調味料セット</li>
                             <li>ユニクロギフト券3000円</li>
                             <li>おつまみセット</li>
-                            <li>お茶</li>
+                            <li>緑茶セット</li>
                         </ul>
                     </li>
                 </ul> 
@@ -128,13 +142,86 @@
             data: {
                 answers: [],
                 questionIndex: 0,
+                clicked: false,
                 questions: [
                     {
                         question: 'このキャラクターの名前は？',
                         answers: [
                             'からめる',
                             'しろデブ',
-                            'ねこじろー',
+                            'ねこじろ',
+                        ],
+                        answer: 1
+                    },
+                    {
+                        question: '新郎が好きなお笑いコンビは？',
+                        answers: [
+                            '三四郎',
+                            'ミルクボーイ',
+                            'マジカルラブリー',
+                        ],
+                        answer: 3
+                    },
+                    {
+                        question: '新郎の趣味は？',
+                        answers: [
+                            'マラソン',
+                            '自転車',
+                            '筋トレ',
+                        ],
+                        answer: 3
+                    },
+                    {
+                        question: '新婦が最近受けた試験は？',
+                        answers: [
+                            '簿記',
+                            'ファイナンシャルプランナー',
+                            'ITパスポート'
+                        ],
+                        answer: 2
+                    },
+                    {
+                        question: '新婦が好きなアニメは？',
+                        answers: [
+                            'ヒカルの碁',
+                            '3月のライオン',
+                            '遊戯王',
+                        ],
+                        answer: 2
+                    },
+                    {
+                        question: '新婦の学生時代のバイトは？',
+                        answers: [
+                            '三省堂書店',
+                            'スターバックス',
+                            'マクドナルド',
+                        ],
+                        answer: 3
+                    },
+                    {
+                        question: '二人で最初に映画館でみた映画は？',
+                        answers: [
+                            '名探偵コナン 緋色の弾丸',
+                            '天気の子',
+                            '鬼滅の刃　無限列車編',
+                        ],
+                        answer: 2
+                    },
+                    {
+                        question: '身長差は何cm？',
+                        answers: [
+                            '14 cm',
+                            '17 cm',
+                            '20 cm',
+                        ],
+                        answer: 2
+                    },
+                    {
+                        question: '新郎/新婦の好きな食べ物の組み合わせは？',
+                        answers: [
+                            'エビチリ/ハッシュポテト',
+                            '八宝菜/豚の角煮',
+                            '筑前煮/レバニラ',
                         ],
                         answer: 1
                     },
@@ -166,15 +253,6 @@
                         answer: 1
                     },
                     {
-                        question: '新婦が最近受けた試験は？',
-                        answers: [
-                            '漢字検定準1級',
-                            '世界遺産検定3級',
-                            '簿記3級',
-                        ],
-                        answer: 2
-                    },
-                    {
                         question: 'プロポーズの日に泊まったホテルは？',
                         answers: [
                             'グランドニッコー東京台場',
@@ -200,69 +278,6 @@
                             '浅田屋',
                         ],
                         answer: 3
-                    },
-                    {
-                        question: '身長差は何cm？',
-                        answers: [
-                            '14 cm',
-                            '17 cm',
-                            '20 cm',
-                        ],
-                        answer: 2
-                    },
-                    {
-                        question: '新郎が好きな芸人は？',
-                        answers: [
-                            '三四郎',
-                            'ミルクボーイ',
-                            'マジカルラブリー',
-                        ],
-                        answer: 3
-                    },
-                    {
-                        question: '新郎xxx？',
-                        answers: [
-                            'xxx',
-                            'yyy',
-                            'zzz',
-                        ],
-                        answer: 3
-                    },
-                    {
-                        question: '新婦が好きなアニメは？',
-                        answers: [
-                            'ヒカルの碁',
-                            '3月のライオン',
-                            '遊戯王',
-                        ],
-                        answer: 3
-                    },
-                    {
-                        question: '新婦の学生時代のバイトは？',
-                        answers: [
-                            '三省堂書店',
-                            'LOFT',
-                            'マクドナルド',
-                        ],
-                        answer: 3
-                    },
-                    {
-                        question: '新郎/新婦の好きな食べ物の組み合わせは？',
-                        answers: [
-                            'エビチリ/ハッシュポテト',
-                            '八宝菜/豚の角煮',
-                            '筑前煮/レバニラ',
-                        ],
-                        answer: 1
-                    },
-                    {
-                        question: '入場曲は？',
-                        answers: [
-                            'What makes you beautiful',
-                            'wedding march part.2',
-                            'Marry You',
-                        ],
-                        answer: 1
                     },
                     {
                         question: '入場曲は？',
@@ -308,6 +323,14 @@
                             }
                         )
                     });
+
+                    this.clicked = true
+                },
+                shuffleCard: function() {
+                    shuffle(this.answers)
+                    for (let i = 0; i < this.answers.length; i++) {
+                        document.getElementById('bi' + i).innerHTML=this.answers[i];
+                    }
                 }
             },
             computed: {
@@ -327,6 +350,9 @@
                 },
                 currentQuestionNumberBase: function(){
                     return this.questionIndex * 3
+                },
+                is_cardCreated: function() {
+                    return this.clicked
                 }
             }
         })
