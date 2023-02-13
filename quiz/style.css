@@ -81,8 +81,8 @@ ul {
   }
   
 ul li{
-line-height: 1.5;
-padding: 0.5em 0;
+    line-height: 1.5;
+    padding: 0.5em 0;
 }
 
 .bingo-img {
@@ -90,4 +90,8 @@ padding: 0.5em 0;
     aspect-ratio: 1/1;
     object-fit: cover;
     vertical-align: bottom;
+}
+
+*, *:before, *:after {
+  box-sizing: content-box
 }

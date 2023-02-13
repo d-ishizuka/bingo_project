@@ -37,11 +37,11 @@
                 </div>
             </div>
         </div>
-        <img src="images/karameru0.jpeg" class="img-fluid" v-if="!completed">
+        <img src="images/karameru0.jpeg" class="img-fluid" v-if="is_first_page">
 
         <!-- bingoを表示する部分 -->
         <div v-if="completed">
-            <div class="flex row">
+            <div class="flex">
                 <div class="col-2">
                     <img class="bingo-img" src="images/56789.jpeg">
                 </div>
