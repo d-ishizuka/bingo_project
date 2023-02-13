@@ -3,6 +3,10 @@
     padding: 40px
 }
 
+.flex {
+    display: flex;
+}
+
 /* カード全体のスタイル */
 #bingocard{
     margin: 0 auto;
@@ -64,6 +68,9 @@
 
 .gift-list {
     border: double 2px #057d23;/*破線 太さ 色*/
+    padding-left: 2rem;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 ul {
@@ -76,4 +83,11 @@ ul {
 ul li{
 line-height: 1.5;
 padding: 0.5em 0;
+}
+
+.bingo-img {
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    vertical-align: bottom;
 }
