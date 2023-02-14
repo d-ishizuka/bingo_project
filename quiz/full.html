@@ -15,7 +15,7 @@
     <div id="app" class="row">
         <!-- 最初のコメント -->
         <div class="bg-warning col-12" v-if="is_first_page">
-            <p class="pl-5 pt-3">
+            <p class="pl-5 pt-3 pr-2">
             【ゲーム説明】<br>
             今から16問の3択クイズを出題します。16問回答後、回答番号をもとにビンゴカードを作成できます。<br>
             ビンゴでは、正解の番号のみが読み上げられるので、できるだけたくさんの正解を目指してください！
@@ -25,9 +25,9 @@
         <div class="quiz col-12" v-if="!completed">
             <div class="card">
                 <div class="card-body">
-                    <p class="badge badge-dark">第 {{ (questionIndex+1) }} 問</p>
+                    <h1 class="badge badge-dark">第 {{ (questionIndex+1) }} 問</h1>
                     <br>
-                    <h4 class="card-title">{{ currentQuestion.question }}</h4>
+                    <h1 class="card-title">{{ currentQuestion.question }}</h1>
                     <hr>
                     <button
                         type="button"
